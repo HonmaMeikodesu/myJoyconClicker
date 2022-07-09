@@ -47,7 +47,7 @@ class GamePadManager {
         }
       });
       this._lastState = nextState;
-      requestAnimationFrame(raqCb);
+      this.offRAF = requestAnimationFrame(raqCb);
     };
     this.offRAF = requestAnimationFrame(raqCb);
   }
@@ -108,7 +108,11 @@ function myJoyConClicker(listenersMap: {[key: number]: () => void}) {
   
   window.addEventListener("gamepaddisconnected", disconnectedCb);
   
-  offListeners.push(() => window.removeEventListener("gamepadconnected", connectedCb), () => window.removeEventListener("gamepaddisconnected", disconnectedCb));
+  offListeners.push(() => window.removeEventListener("gamepadconnected", connectedCb), () => window.removeEventListener("gamepaddisconnected", disconnectedCb), () => {
+    gamePadManagerList.forEach((manager) => {
+      manager.dispose();
+    });
+  });
 }
 
 myJoyConClicker({0: () => console.log(132), 1: () => console.log(456)})
