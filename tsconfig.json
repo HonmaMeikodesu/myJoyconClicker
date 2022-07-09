@@ -1,0 +1,11 @@
+{
+  "include": ["src/*"],
+  "compilerOptions": {
+    "module": "umd",
+    "target": "es2015",
+    "moduleResolution": "Node",
+    "noImplicitAny": true,
+    "outDir": "build",
+    "sourceMap": true
+  }
+}

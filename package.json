@@ -1,0 +1,26 @@
+{
+  "name": "myjoyconclicker",
+  "version": "1.0.0",
+  "description": "",
+  "browser": {
+    "index.js": "./build/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf build && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HonmaMeikodesu/myJoyconClicker.git"
+  },
+  "author": "HonmaMeikodesu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HonmaMeikodesu/myJoyconClicker/issues"
+  },
+  "homepage": "https://github.com/HonmaMeikodesu/myJoyconClicker#readme",
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^4.7.4"
+  }
+}
