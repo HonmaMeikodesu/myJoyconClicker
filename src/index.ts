@@ -75,7 +75,7 @@ function myJoyConClicker(listenersMap: {[key: number]: () => void}) {
   const connectedCb = () => {
     const gamePads = navigator.getGamepads().filter(Boolean);
     gamePads.forEach((connectedGamePad) => {
-      if (gamePadManagerList.length ===0 || gamePadManagerList.some((gamePad) => gamePad.getGamepadId() !== connectedGamePad.id)) {
+      if (gamePadManagerList.every((gamePad) => gamePad.getGamepadId() !== connectedGamePad.id)) {
         // incoming new gamePad
         const newGamePadManager = new GamePadManager(connectedGamePad.id);
         gamePadManagerList.push(newGamePadManager);
@@ -100,7 +100,7 @@ function myJoyConClicker(listenersMap: {[key: number]: () => void}) {
     disconnectedGamePadList.forEach((manager) => {
       manager.dispose();
       const disconnectedManagerId = manager.getGamepadId();
-      gamePadManagerList = gamePadManagerList.filter((currentManager) => currentManager.getGamepadId() === disconnectedManagerId);
+      gamePadManagerList = gamePadManagerList.filter((currentManager) => currentManager.getGamepadId() !== disconnectedManagerId);
     })
   };
 
